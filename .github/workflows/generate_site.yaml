@@ -17,6 +17,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install jinja2-humanize-extension
+      - name: Debugging
+        run: ls -la
+        shell: sh
       - name: Run script to populate site with articles
         run: python create_site.py
         shell: sh
