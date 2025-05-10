@@ -6,7 +6,7 @@ import miniflux
 body = "This is where the articles go"
 
 # Pull data from Miniflux
-minifluxKey = os.environ['MINIFLUX_API_KEY'])
+minifluxKey = os.environ['MINIFLUX_API_KEY']
 minifluxClient = miniflux.Client("https://reader.miniflux.app", api_key=minifluxKey)
 feeds = minifluxClient.get_feeds()
 
