@@ -12,8 +12,9 @@ def getObjectByAttribute(arr, attributeName, attributeValue):
             return obj
 
 def convertEntryToNewsArticle(entry):
-	print(entry)
+    print(entry)
     newsArticle = "<h2>"+entry.get("title")+" by "+entry.get("author")+"</h2>"
+    return newsArticle
 
 # Set up Miniflux connection
 minifluxKey = os.environ['MINIFLUX_API_KEY']
