@@ -20,6 +20,9 @@ def convertEntryToNewsArticle(entry):
 minifluxKey = os.environ['MINIFLUX_API_KEY']
 minifluxClient = miniflux.Client("https://reader.miniflux.app", api_key=minifluxKey)
 
+# Delete any read entries (except starred)
+minifluxClient.flush_history()
+
 # Pull list of categories
 categories = minifluxClient.get_categories()
 news_category_id = getObjectByAttribute(categories, "title", "News")["id"]
