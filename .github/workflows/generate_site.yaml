@@ -1,7 +1,8 @@
 name: generate_site
 
 on:
-  workflow_dispatch:       # allow running manually
+  push
+  #workflow_dispatch:       # allow running manually
 
 jobs:
   generate_site:
