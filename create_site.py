@@ -25,7 +25,7 @@ categories = minifluxClient.get_categories()
 news_category_id = getObjectByAttribute(categories, "title", "News")["id"]
 
 # Pull list of news items
-newsEntries = minifluxClient.get_category_entries(news_category_id)
+newsEntries = minifluxClient.get_category_entries(news_category_id)["entries"]
 for entry in newsEntries:
 	body += convertEntryToNewsArticle(entry)
 
