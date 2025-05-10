@@ -12,9 +12,8 @@ def getObjectByAttribute(arr, attributeName, attributeValue):
             return obj
 
 def convertEntryToNewsArticle(entry):
-    newsArticle = "<h2>"+entry["title"]+" by "+entry["author"]+"</h2>"
-    newsArticle += entry["content"]
-    newsArticle += "<br>"
+	print(entry)
+    newsArticle = "<h2>"+entry.get("title")+" by "+entry.get("author")+"</h2>"
 
 # Set up Miniflux connection
 minifluxKey = os.environ['MINIFLUX_API_KEY']
@@ -23,7 +22,6 @@ minifluxClient = miniflux.Client("https://reader.miniflux.app", api_key=miniflux
 # Pull list of categories
 categories = minifluxClient.get_categories()
 news_category_id = getObjectByAttribute(categories, "title", "News")["id"]
-print("News id" + str(news_category_id))
 
 # Pull list of news items
 newsEntries = minifluxClient.get_category_entries(news_category_id)
